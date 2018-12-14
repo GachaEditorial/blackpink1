@@ -1,0 +1,78 @@
+{
+    "square up": {
+        "title": "Square Up",
+        "songs": [
+            {
+                "title": "뚜두뚜두 (DDU-DU DDU-DU)",
+                "mvid": "IHNzOHi8sJs"
+            },
+            {
+                "title": "Forever Young"
+            },
+            {
+                "title": "Really"
+            },
+            {
+                "title": "See U Later"
+            }
+        ],
+        "links": {
+            "apple": "https://itunes.apple.com/gb/album/square-up-ep/1398185606",
+            "spotify": "https://open.spotify.com/album/1HwIUaaEuRsxsIyssqtGLH?si=kXbTM5QGTsCuIX3T7ChqXA",
+            "google": "https://play.google.com/store/music/album/BLACKPINK_SQUARE_UP?id=B7lsixzpthucti5jn5lmx3di3vm"
+        }
+    },
+    "as if its your last": {
+        "title": "마지막처럼 (AS IF IT'S YOUR LAST)",
+        "songs": [
+            {
+                "title": "마지막처럼 (AS IF IT'S YOUR LAST)",
+                "mvid": "Amq-qlqbjYA"
+            }
+        ],
+        "links": {
+            "apple": "https://itunes.apple.com/gb/album/as-if-its-your-last-single/1251249729",
+            "spotify": "https://open.spotify.com/album/6IzQb2kLydYNfzmKXvmndX?si=Xnw6s-8NQzOTClPMLKvbHg",
+            "google": "https://play.google.com/store/music/album/BLACKPINK_As_If_It_s_Your_Last?id=Bsfdzktxui4ahe5uilflxmm4hxa"
+        }
+    },
+    "square two": {
+        "title": "square two",
+        "songs": [
+            {
+                "title": "불장난",
+                "mvid": "9pdj4iJD08s"
+            },
+            {
+                "title": "stay",
+                "mvid": "FzVR_fymZw4"
+            },
+            {
+                "title": "휘파람 (ACOUSTIC VER.)"
+            }
+        ],
+        "links": {
+            "apple": "https://itunes.apple.com/gb/album/square-two-ep/1313151079",
+            "spotify": "https://open.spotify.com/album/2s27rRgZswwbRJUQXSGTLf?si=JcYFVKIhSGmwn_KaxWXDow",
+            "google": "https://play.google.com/store/music/album/BLACKPINK_SQUARE_TWO?id=Bnetu5o3c4jszjclrgbmwnx2xd4"
+        }
+    },
+    "square one": {
+        "title": "square one",
+        "songs": [
+            {
+                "title": "휘파람 (WHISTLE)",
+                "mvid": "dISNgvVpWlo"
+            },
+            {
+                "title": "붐바야 (BOOMBAYAH)",
+                "mvid": "bwmSjveL3Lc"
+            }
+        ],
+        "links": {
+            "apple": "https://itunes.apple.com/gb/album/square-one-single/1315917456",
+            "spotify": "https://open.spotify.com/album/0AcFaK32ui9rF2ySEdXrv4?si=sE5EXTpwQDGvzACWh5vrCA",
+            "google": "https://play.google.com/store/music/album/BLACKPINK_SQUARE_ONE?id=Bxpycywxrfcn75tpg6sqk5bbgjq"
+        }
+    }
+}

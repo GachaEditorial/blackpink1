@@ -1,0 +1,334 @@
+@font-face {
+    font-family: 'primetime';
+    src: url('../fonts/primetime.woff') format('woff2'),
+         url('../fonts/primetime.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import 'vars';
+
+body {
+    font-family: $proxima;
+    height: 100vh;
+    width: 100vw;
+    font-size: 16px;
+    margin: 0;
+    overflow-x: hidden;
+    ivory-view {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        user-select: none;
+        transition: .3s ease-in-out;
+        width: 100%;
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            user-select: auto;
+        }
+        section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            background: $black;
+            .header {
+                height: 60px;
+                width: 100%;
+                position: fixed;
+                z-index: 50;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .logo {
+                    color: inherit;
+                    font-family: $primetime;
+                    letter-spacing: 1px;
+                    border: 3px solid;
+                    padding: 5px;
+                    margin-left: 15px;
+                    position: relative;
+                    z-index: 51;
+                    span {
+                        float: left;
+                    }
+                    .vertical {
+                        transform: scale(-1, -1);
+                    }
+                    .horizontal {
+                        transform: scale(-1, 1);
+                        margin-right: 1px;
+                    }
+                }
+                .burger {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 15px;
+                    position: relative;
+                    input[type="checkbox"] {
+                        height: 100%;
+                        width: 100%;
+                        margin: 0;
+                        position: absolute;
+                        opacity: 0;
+                        z-index: 51;
+                    }
+                    span {
+                        height: 2px;
+                        pointer-events: none;
+                        width: 20px;
+                        margin: 5px 0 0 10px;
+                        border-radius: 2px;
+                        display: block;
+                        transform-origin: right;
+                        transition: .2s $cubic;
+                        position: relative;
+                        z-index: 51;
+                        &:nth-child(3){
+                            transition-delay: .2s;
+                        }
+                        &:nth-child(2), &:nth-child(4){
+                            transition-delay: 0s;
+                        }
+                    }
+                    nav {
+                        height: 100vh;
+                        width: 100vw;
+                        position: fixed;
+                        background: $pink;
+                        top: 0;
+                        left: 0;
+                        z-index: 50;
+                        opacity: 0;
+                        user-select: none;
+                        pointer-events: none;
+                        transition: .3s $cubic;
+                        transform: scale(0.95);
+                        transition-delay: 0.2s;
+                        ul.mainNav {
+                            width: 100%;
+                            margin: 100px 0 0;
+                            list-style: none;
+                            padding: 0;
+                            li {
+                                width: 100%;
+                                font-family: $primetime;
+                                text-align: center;
+                                font-size: 1.25rem;
+                                margin-bottom: 20px;
+                                letter-spacing: 1px;
+                                a {
+                                    text-decoration: none;
+                                    color: inherit;
+                                }
+                            }
+                        }
+                        ul.socialMedia {
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            left: 0;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            align-items: center;
+                            padding: 30px;
+                            box-sizing: border-box;
+                            li {
+                                height: 50px;
+                                width: 50px;
+                                background: $black;
+                                border-radius: 4px;
+                                text-align: center;
+                                line-height: 50px;
+                                vertical-align: middle;
+                                a {
+                                    text-decoration: none;
+                                    color: $pink;
+                                    font-size: 1.25rem;
+                                }
+                            }
+                        }
+                    }
+                    input[type="checkbox"]:checked ~ nav {
+                        opacity: 1;
+                        user-select: auto;
+                        pointer-events: auto;
+                        transform: scale(1);
+                    }
+                    input[type="checkbox"]:checked ~ span {
+                        &:nth-child(2){
+                            transition-delay: .2s;
+                            transform: rotate(-45deg);
+                        }
+                        &:nth-child(3){
+                            transition-delay: 0s;
+                            opacity: 0;
+                        }
+                        &:nth-child(4){
+                            transition-delay: .2s;
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+                &.black {
+                    color: $black;
+                    .logo {
+                        border-color: $black;
+                        span {
+                            color: $black;
+                        }
+                    }
+                    .burger {
+                        span {
+                            background: $black;
+                        }
+                        nav {
+                            background: $pink;
+                            ul.socialMedia {
+                                li {
+                                    background: $pink;
+                                    a {
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.pink {
+                    color: $pink;
+                    .logo {
+                        border-color: $pink;
+                        span {
+                            color: $pink;
+                        }
+                    }
+                    .burger {
+                        span {
+                            background: $pink;
+                        }
+                        nav {
+                            background: $black;
+                            ul.socialMedia {
+                                li {
+                                    background: $pink;
+                                    a {
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: $black;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s $cubic;
+        white-space: nowrap;
+        article {
+            user-select: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            color: $pink;
+            opacity: 1;
+            letter-spacing: 5px;
+            font-family: $primetime;
+            font-size: 1.2rem;
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-delay: 1.3s;
+            white-space: nowrap;
+            span {
+                animation-name: fadeIn;
+                animation-duration: .3s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                animation-delay: 0.5s;
+                float: left;
+                &.vertical {
+                    transform: rotate(180deg);
+                    margin: -1px 5px 0 -5px;
+                }
+                &.horizontal {
+                    transform: scale(-1, 1);
+                    margin: 0 4px 0 -5px;
+                }
+                &.flip {
+                    transform: rotate(185deg);
+                    margin: -1px 4px 0 -5px;
+                }
+            }
+        }
+    }
+    &.loading {
+        .loading {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@import 'home';
+@import 'about';
+@import 'member';
+@import 'music';
+
+@media only screen and (max-width: 327px){
+    body {
+        .loading {
+            article {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

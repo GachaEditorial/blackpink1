@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <title>BLACKPINK</title>
+        <link rel="stylesheet" href="https://use.typekit.net/cns0rxs.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="./assets/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="loading">
+        <div class="loading">
+            <article>
+                <span>B</span>
+                <span>L</span>
+                <span class="vertical">V</span>
+                <span class="flip">C</span>
+                <span>K</span>
+                <span>P</span>
+                <span>I</span>
+                <span class="horizontal">N</span>
+                <span>K</span>
+            </article>
+        </div>
+
+        <ivory-view route="^/$" class="visible">
+            <section class="home">
+                <div class="header black">
+                    <div class="logo">
+                        <span>BL</span>
+                        <span class="vertical">V</span>
+                        <span class="horizontal">C</span>
+                        <span>KPI</span>
+                        <span class="horizontal">N</span>
+                        <span>K</span>
+                    </div>
+                    <div class="burger">
+                        <input type="checkbox" class="navCheckbox"/>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <nav>
+                            <ul class="mainNav">
+                                <li><a href="/">home</a></li>
+                                <li><a href="/about/">about</a></li>
+                                <li><a href="/music/">music</a></li>
+                                <li><a href="/videos/">videos</a></li>
+                                <li><a href="/store/">store</a></li>
+                            </ul>
+                            <ul class="socialMedia">
+                                <li><a href="https://youtube.com" target="_blank" external><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="https://facebook.com" target="_blank" external><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://instagram.com" target="_blank" external><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://twitter.com" target="_blank" external><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- start home content -->
+
+                <div class="slider" id="slider" data-current="1">
+                    <div class="contentWrap">
+                        <div class="item">
+                            <a href="/jennie/"><img src="./assets/img/home/jennie-landing.png"></a>
+                        </div>
+                        <div class="item">
+                            <a href="/lisa/"><img src="./assets/img/home/lisa-landing.png"></a>
+                        </div>
+                        <div class="item">
+                            <a href="/jisoo/"><img src="./assets/img/home/jisoo-landing.png"></a>
+                        </div>
+                        <div class="item">
+                            <a href="/rose/"><img src="./assets/img/home/rose-landing.png"></a>
+                        </div>
+                    </div>
+                    <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="musicVideo">
+                    <iframe class="video" src="https://www.youtube.com/embed/IHNzOHi8sJs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+            </section>
+        </ivory-view>
+        <ivory-view remote route="^/about/$"></ivory-view>
+        <ivory-view remote route="^/lisa/$"></ivory-view>
+        <ivory-view remote route="^/jennie/$"></ivory-view>
+        <ivory-view remote route="^/jisoo/$"></ivory-view>
+        <ivory-view remote route="^/rose/$"></ivory-view>
+        <ivory-view remote route="^/music/$"></ivory-view>
+
+        <ivory-router></ivory-router>
+
+        <script src="./assets/js/loading.js"></script>
+
+        <script defer src="./assets/js/hammer.min.js"></script>
+
+        <script defer src="./assets/js/instagram.js"></script>
+
+        <script defer src="./assets/js/pageLoad.js"></script>
+
+        <script defer src="./assets/js/view.js"></script>
+        <script defer src="./assets/js/router.js"></script>
+        <script defer src="./assets/js/app.js"></script>
+
+        <script>
+            window.onload = () => {
+                pageLoad('homeLoad()');
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Jennie - BLACKPINK</title>
+        <link rel="stylesheet" href="https://use.typekit.net/cns0rxs.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="loading">
+        <div class="loading">
+            <article>
+                <span>B</span>
+                <span>L</span>
+                <span class="vertical">V</span>
+                <span class="flip">C</span>
+                <span>K</span>
+                <span>P</span>
+                <span>I</span>
+                <span class="horizontal">N</span>
+                <span>K</span>
+            </article>
+        </div>
+
+        <ivory-view remote route="^/$"></ivory-view>
+        <ivory-view remote route="^/about/$"></ivory-view>
+        <ivory-view remote route="^/lisa/$"></ivory-view>
+        <ivory-view route="^/jennie/$" class="visible">
+            <section id="aboutJennie">
+                <div class="header pink">
+                    <div class="logo">
+                        <a href="/">
+                            <span>BL</span>
+                            <span class="vertical">V</span>
+                            <span class="horizontal">C</span>
+                            <span>KPI</span>
+                            <span class="horizontal">N</span>
+                            <span>K</span>
+                        </a>
+                    </div>
+                    <div class="burger">
+                        <input type="checkbox" class="navCheckbox"/>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <nav>
+                            <ul class="mainNav">
+                                <li><a href="/">home</a></li>
+                                <li><a href="/about/">about</a></li>
+                                <li><a href="/music/">music</a></li>
+                                <li><a href="/videos/">videos</a></li>
+                                <li><a href="/store/">store</a></li>
+                            </ul>
+                            <ul class="socialMedia">
+                                <li><a href="https://youtube.com" target="_blank" external><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="https://facebook.com" target="_blank" external><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://instagram.com" target="_blank" external><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://twitter.com" target="_blank" external><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- jennie content starts here -->
+                
+                <div class="landing"></div>
+
+                <div class="content">
+                    <h1>jennie</h1>
+                    <h2>about jennie</h2>
+                    <p>Jennie Kim, better known as Jennie, is a South Korean singer, rapper and dancer. During her early life, Jennie moved from her home to live in Auckland, New Zealand, where she spent five years and was a student at ACG Parnell College. During her time abroad, she learnt to speak fluent English on top of basic Japanese and fluent Korean. In 2010, she moved to live in Seoul, South Korea and made a successful audition to YG Entertainment, she was a YG trainee forsix years.</p>
+                    <h2>instagram</h2>
+                    <div class="instagramfeed" id="jennieIG"></div>
+                </div>
+
+            </section>
+        </ivory-view>
+        <ivory-view remote route="^/jisoo/$"></ivory-view>
+        <ivory-view remote route="^/rose/$"></ivory-view>
+        <ivory-view remote route="^/music/$"></ivory-view>
+
+        <ivory-router></ivory-router>
+
+        <script src="../assets/js/loading.js"></script>
+
+        <script defer src="../assets/js/hammer.min.js"></script>
+
+        <script defer src="../assets/js/instagram.js"></script>
+
+        <script defer src="../assets/js/pageLoad.js"></script>
+
+        <script defer src="../assets/js/view.js"></script>
+        <script defer src="../assets/js/router.js"></script>
+        <script defer src="../assets/js/app.js"></script>
+
+        <script>
+            window.onload = () => {
+                pageLoad('jennieLoad()');
+            }
+        </script>
+    </body>
+</html>
