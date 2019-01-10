@@ -15,6 +15,9 @@ body {
     font-size: 16px;
     margin: 0;
     overflow-x: hidden;
+    a {
+        text-decoration: none;
+    }
     ivory-view {
         position: absolute;
         opacity: 0;
@@ -37,17 +40,31 @@ body {
             height: 100vh;
             overflow-y: auto;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
+            // -webkit-overflow-scrolling: touch; // but why did this cause issues with glitchy header scroll?
             background: $black;
+            &.scroll {
+                .header {
+                    &.black {
+                        background: $pink;
+                    }
+                    &.pink {
+                        background: $black;
+                    }
+                }
+            }
             .header {
                 height: 60px;
                 width: 100%;
                 position: fixed;
                 z-index: 50;
+                -webkit-transform: translate(1px);
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
+                transition: .2s $cubic;
+                top: 0;
+                left: 0;
                 .logo {
                     color: inherit;
                     font-family: $primetime;
@@ -73,6 +90,7 @@ body {
                     width: 30px;
                     margin-right: 15px;
                     position: relative;
+                    cursor: pointer;
                     input[type="checkbox"] {
                         height: 100%;
                         width: 100%;
@@ -198,9 +216,9 @@ body {
                             background: $pink;
                             ul.socialMedia {
                                 li {
-                                    background: $pink;
+                                    background: $black;
                                     a {
-                                        color: $black;
+                                        color: $pink;
                                     }
                                 }
                             }
@@ -322,6 +340,8 @@ body {
 @import 'about';
 @import 'member';
 @import 'music';
+@import 'videos';
+@import 'store';
 
 @media only screen and (max-width: 327px){
     body {

@@ -1,4 +1,12 @@
 function pageLoad(page){
+    var view = document.querySelector("ivory-view.visible section");
+    view.addEventListener('scroll', () => {
+        if (view.scrollTop > 0){
+            view.classList.add("scroll");
+        } else {
+            view.classList.remove("scroll");
+        }
+    });
     eval(page);
 }
 
@@ -10,6 +18,13 @@ function homeLoad(){
         sliderControl();
         homeLoaded = true;
     }
+}
+
+function videosLoad(){
+    document.title = "Videos - BLACKPINK";
+    buildVLive((data) => {
+        
+    });
 }
 
 function lisaLoad(){
@@ -47,6 +62,94 @@ function roseLoad(){
 function musicLoad(){
     document.title = "Music - BLACKPINK";
     buildAlbums();
+}
+
+function storeLoad(){
+    document.title = "Store - BLACKPINK";
+    buildStore();
+}
+
+function buildStore(){
+    var url = "https://api.ipdata.co?api-key=";
+    // var apiKey = "c0e573178e93ec0fb2d75febfe46cdc32670a8410a95267af1d5235c";
+    var apiKey = "test";
+    var productsElem = document.getElementById("products");
+    productsElem.innerHTML = '';
+    fetch(url+apiKey)
+    .then(res => {
+        res.json().then(data => {
+            var currency = data.currency.code;
+            var symbol = data.currency.symbol;
+            fetch("../../data/products.json")
+            .then(res => {
+                res.json().then(data => {
+                    console.log(data);
+                    buildProducts(data, currency, symbol, function(products){
+                        productsElem.appendChild(products);
+                    });
+                });
+            });
+        });
+    });
+}
+
+function buildProducts(data, currency, symbol, callback){
+    var products = document.createElement("div");
+    products.classList.add("productsWrapper");
+    Object.keys(data).forEach((item) => {
+        buildProduct(data[item], currency, symbol, function(product, preorder){
+            if (preorder){
+                products.prepend(product);
+            } else {
+                products.appendChild(product);
+            }
+        });
+    });
+    callback(products);
+}
+
+function buildProduct(data, currency, symbol, callback){
+    var product = document.createElement("div");
+    product.classList.add("product");
+
+    var productInfo = document.createElement("div");
+    productInfo.classList.add("info");
+    var productName = document.createElement("p");
+    var productPrice = document.createElement("p");
+    productPrice.classList.add("price");
+
+    if (data.price[currency] === undefined){
+        productPrice.innerText = "$"+data.price.usd;
+    } else {
+        productPrice.innerText = symbol+data.price[currency];
+    }
+
+    productName.innerText = data.displayName;
+    productInfo.appendChild(productName);
+    productInfo.appendChild(productPrice);
+
+    var productImage = document.createElement("img");
+    productImage.setAttribute("src", data.image);
+
+    product.appendChild(productImage);
+    product.appendChild(productInfo);
+
+    productLink = document.createElement("a");
+    productLink.setAttribute("href", "https://en.ygselect.com/Product/Detail/view/pid/"+data.id+"/cid/831");
+    productLink.setAttribute("target", "_blank");
+    productLink.setAttribute("external", true);
+
+    if (data.preorder){
+        product.classList.add("preorder");
+    }
+
+    if (data.new){
+        product.classList.add("new");
+    }
+
+    productLink.appendChild(product);
+
+    callback(productLink, data.preorder);
 }
 
 function sliderControl(){

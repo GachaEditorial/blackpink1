@@ -11,10 +11,14 @@
             position: absolute;
             content: '';
             background: url('../img/content-before.png') no-repeat center center;
+            background-size: cover;
             width: 100%;
             bottom: 0;
             left: 0;
             height: 40px;
+        }
+        img {
+            display: none;
         }
     }
     .content {
@@ -122,5 +126,82 @@
     .landing {
         background: url('../img/members/rose-landing.png') no-repeat center center;
         background-size: cover;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    #aboutLisa, #aboutJennie, #aboutJisoo, #aboutRose {
+        .landing {
+            background: url('../img/home/landing-bg.png') no-repeat center center;
+            background-size: cover;
+            img {
+                display: block;
+                position: absolute;
+                height: calc(100% - 120px);
+                width: auto;
+                bottom: 0;
+                left: calc(((100vw - 1024px) / 2) + 50px);
+            }
+            &::before {
+                text-transform: uppercase;
+                color: #ffffff;
+                font-size: 10rem;
+                font-weight: bold;
+                position: absolute;
+                right: calc((100vw - 50px - 285px) / 2);
+                top: 50%;
+                transform: translate(50%, -50%);
+            }
+        }
+        .content {
+            h1 {
+                display: none;
+            }
+            h2 {
+                margin: 50px calc((100% - 824px) / 2) 0;
+                max-width: 824px;
+            }
+            p {
+                margin: 0 calc((100% - 824px) / 2);
+                max-width: 824px;
+            }
+            .instagramfeed {
+                max-width: 824px;
+                margin: 0 calc((100% - 824px) / 2) 50px;
+                max-height: 809px;
+                .feed {
+                    grid-row-gap: 25px;
+                    grid-column-gap: 25px;
+                }
+            }
+        }
+    }
+    #aboutLisa {
+        .landing {
+            &::before {
+                content: 'lisa';
+            }
+        }
+    }
+    #aboutJennie {
+        .landing {
+            &::before {
+                content: 'jennie';
+            }
+        }
+    }
+    #aboutJisoo {
+        .landing {
+            &::before {
+                content: 'jisoo';
+            }
+        }
+    }
+    #aboutRose {
+        .landing {
+            &::before {
+                content: 'rosé';
+            }
+        }
     }
 }

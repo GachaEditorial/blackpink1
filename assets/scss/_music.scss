@@ -87,3 +87,53 @@
         }
     }
 }
+
+@media only screen and (min-width: 1024px){
+    #music {
+        h2 {
+            max-width: 1024px;
+            margin: 75px calc((100vw - 1024px) / 2) 35px;
+        }
+        #albums {
+            max-width: 1024px;
+            margin: 0 auto;
+            .album {
+                min-height: calc((((1024px - 50px) / 2) / 16) * 9);
+                h1 {
+                    padding: 15px;
+                    margin: 0;
+                    width: calc((100% - 50px) / 2);
+                }
+                .song {
+                    display: block;
+                }
+                iframe {
+                    width: calc((100% - 50px) / 2);
+                    height: calc((((1024px - 50px) / 2) / 16) * 9);
+                    margin-top: 15px;
+                    float: right;
+                    display: none;
+                }
+                h3 {
+                    margin: 0;
+                    padding: 15px 0;
+                    width: calc((100% - 50px) / 2);
+                }
+                .links {
+                    border-top: 1px solid $black;
+                    margin-top: -1px;
+                    display: flex;
+                }
+                .song {
+                    display: block;
+                    &:nth-child(3) {
+                        iframe {
+                            display: block;
+                            margin-top: -50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

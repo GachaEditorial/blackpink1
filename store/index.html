@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-        <title>Jennie - BLACKPINK</title>
+        <title>Videos - BLACKPINK</title>
         <link rel="stylesheet" href="https://use.typekit.net/cns0rxs.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link href="../assets/css/main.css" rel="stylesheet" type="text/css">
@@ -26,8 +26,13 @@
         <ivory-view remote route="^/$"></ivory-view>
         <ivory-view remote route="^/about/$"></ivory-view>
         <ivory-view remote route="^/lisa/$"></ivory-view>
-        <ivory-view route="^/jennie/$" class="visible">
-            <section id="aboutJennie">
+        <ivory-view remote route="^/jennie/$"></ivory-view>
+        <ivory-view remote route="^/jisoo/$"></ivory-view>
+        <ivory-view remote route="^/rose/$"></ivory-view>
+        <ivory-view remote route="^/music/$"></ivory-view>
+        <ivory-view remote route="^/videos/$"></ivory-view>
+        <ivory-view route="^/store/$" class="visible">
+            <section id="store">
                 <div class="header pink">
                     <div class="logo">
                         <a href="/">
@@ -62,27 +67,16 @@
                     </div>
                 </div>
                 
-                <!-- jennie content starts here -->
+                <!-- store content starts here -->
                 
-                <div class="landing">
-                    <img src="../assets/img/home/jennie-landing.png" />
-                </div>
+                <h2>
+                    Store
+                </h2>
 
-                <div class="content">
-                    <h1>jennie</h1>
-                    <h2>about jennie</h2>
-                    <p>Jennie Kim, better known as Jennie, is a South Korean singer, rapper and dancer. During her early life, Jennie moved from her home to live in Auckland, New Zealand, where she spent five years and was a student at ACG Parnell College. During her time abroad, she learnt to speak fluent English on top of basic Japanese and fluent Korean. In 2010, she moved to live in Seoul, South Korea and made a successful audition to YG Entertainment, she was a YG trainee forsix years.</p>
-                    <h2>instagram</h2>
-                    <div class="instagramfeed" id="jennieIG"></div>
-                </div>
+                <div id="products"></div>
 
             </section>
         </ivory-view>
-        <ivory-view remote route="^/jisoo/$"></ivory-view>
-        <ivory-view remote route="^/rose/$"></ivory-view>
-        <ivory-view remote route="^/music/$"></ivory-view>
-        <ivory-view remote route="^/videos/$"></ivory-view>
-        <ivory-view remote route="^/store/$"></ivory-view>
 
         <ivory-router></ivory-router>
 
@@ -101,7 +95,7 @@
 
         <script>
             window.onload = () => {
-                pageLoad('jennieLoad()');
+                pageLoad('storeLoad()');
             }
         </script>
     </body>

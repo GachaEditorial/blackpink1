@@ -120,3 +120,45 @@
         }
     }
 }
+
+@media only screen and (min-width: 500px){
+    .home .musicVideo .video {
+        width: 500px;
+        height: calc((500px / 16) * 9);
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .home {
+        .slider {
+            .contentWrap {
+                width: calc(100% - 100px);
+                position: relative;
+                left: 50%;
+                transform: translate(-50%, 0);
+                max-width: 1200px;
+                .item {
+                    img {
+                        max-width: 100%;
+                        max-height: calc(100% - 120px);
+                    }
+                }
+            }
+            &[data-current="1"], &[data-current="2"], &[data-current="3"], &[data-current="4"]{
+                .contentWrap {
+                    margin-left: 0;
+                }
+            }
+            .dots {
+                display: none;
+            }
+        }
+        .musicVideo .video {
+            width: calc(100vw - 400px);
+            height: calc(((100vw - 400px) / 16) * 9);
+            max-width: 1000px;
+            max-height: calc((1000px / 16) * 9);
+        }
+    }
+}

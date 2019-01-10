@@ -3,6 +3,7 @@
     height: 100vh;
     width: 100%;
     background: $black;
+    position: relative;
     h1 {
         color: #ffffff;
         font-size: 1.5rem;
@@ -42,5 +43,45 @@
                 margin-top: 15px;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 500px){
+    .about {
+        .members {
+            width: 440px;
+            height: 440px;
+            margin: 75px calc((100vw - 440px) / 2) 50px;
+        }
+    }
+}
+
+@media only screen and (min-width: 900px){
+    .about {
+        .aboutWrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 100px);
+            max-width: 850px;
+        }
+        .members {
+            width: calc(100% - 60px);
+            margin: 75px 30px 50px;
+            height: auto;
+            article {
+                width: calc((100% - 60px) / 4);
+                height: auto;
+                margin-right: 15px;
+                &:nth-child(even){
+                    margin-left: 0;
+                }
+                &:nth-child(3), &:nth-child(4){
+                    margin-top: 0;
+                }
+            }
+        }
+
     }
 }

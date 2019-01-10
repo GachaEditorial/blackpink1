@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "primetime";
   src: url("../fonts/primetime.woff") format("woff2"), url("../fonts/primetime.woff") format("woff");
@@ -11,6 +12,9 @@ body {
   font-size: 16px;
   margin: 0;
   overflow-x: hidden;
+}
+body a {
+  text-decoration: none;
 }
 body ivory-view {
   position: absolute;
@@ -35,7 +39,12 @@ body ivory-view section {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  background: #020001;
+}
+body ivory-view section.scroll .header.black {
+  background: #F7A6B9;
+}
+body ivory-view section.scroll .header.pink {
   background: #020001;
 }
 body ivory-view section .header {
@@ -43,10 +52,14 @@ body ivory-view section .header {
   width: 100%;
   position: fixed;
   z-index: 50;
+  -webkit-transform: translate(1px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  transition: 0.2s cubic-bezier(0.645, 0.645, 0.355, 1);
+  top: 0;
+  left: 0;
 }
 body ivory-view section .header .logo {
   color: inherit;
@@ -73,6 +86,7 @@ body ivory-view section .header .burger {
   width: 30px;
   margin-right: 15px;
   position: relative;
+  cursor: pointer;
 }
 body ivory-view section .header .burger input[type=checkbox] {
   height: 100%;
@@ -196,10 +210,10 @@ body ivory-view section .header.black .burger nav {
   background: #F7A6B9;
 }
 body ivory-view section .header.black .burger nav ul.socialMedia li {
-  background: #F7A6B9;
+  background: #020001;
 }
 body ivory-view section .header.black .burger nav ul.socialMedia li a {
-  color: #020001;
+  color: #F7A6B9;
 }
 body ivory-view section .header.pink {
   color: #F7A6B9;
@@ -405,10 +419,43 @@ body.loading .loading {
   height: calc(((100vw - 30px) / 16) * 9);
 }
 
+@media only screen and (min-width: 500px) {
+  .home .musicVideo .video {
+    width: 500px;
+    height: calc((500px / 16) * 9);
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .home .slider .contentWrap {
+    width: calc(100% - 100px);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 1200px;
+  }
+  .home .slider .contentWrap .item img {
+    max-width: 100%;
+    max-height: calc(100% - 120px);
+  }
+  .home .slider[data-current="1"] .contentWrap, .home .slider[data-current="2"] .contentWrap, .home .slider[data-current="3"] .contentWrap, .home .slider[data-current="4"] .contentWrap {
+    margin-left: 0;
+  }
+  .home .slider .dots {
+    display: none;
+  }
+  .home .musicVideo .video {
+    width: calc(100vw - 400px);
+    height: calc(((100vw - 400px) / 16) * 9);
+    max-width: 1000px;
+    max-height: calc((1000px / 16) * 9);
+  }
+}
 .about {
   height: 100vh;
   width: 100%;
   background: #020001;
+  position: relative;
 }
 .about h1 {
   color: #ffffff;
@@ -451,6 +498,39 @@ body.loading .loading {
   margin-top: 15px;
 }
 
+@media only screen and (min-width: 500px) {
+  .about .members {
+    width: 440px;
+    height: 440px;
+    margin: 75px calc((100vw - 440px) / 2) 50px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .about .aboutWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 100px);
+    max-width: 850px;
+  }
+  .about .members {
+    width: calc(100% - 60px);
+    margin: 75px 30px 50px;
+    height: auto;
+  }
+  .about .members article {
+    width: calc((100% - 60px) / 4);
+    height: auto;
+    margin-right: 15px;
+  }
+  .about .members article:nth-child(even) {
+    margin-left: 0;
+  }
+  .about .members article:nth-child(3), .about .members article:nth-child(4) {
+    margin-top: 0;
+  }
+}
 #aboutLisa .landing, #aboutJennie .landing, #aboutJisoo .landing, #aboutRose .landing {
   height: calc(100vh - 80px);
   width: 100%;
@@ -462,10 +542,14 @@ body.loading .loading {
   position: absolute;
   content: "";
   background: url("../img/content-before.png") no-repeat center center;
+  background-size: cover;
   width: 100%;
   bottom: 0;
   left: 0;
   height: 40px;
+}
+#aboutLisa .landing img, #aboutJennie .landing img, #aboutJisoo .landing img, #aboutRose .landing img {
+  display: none;
 }
 #aboutLisa .content, #aboutJennie .content, #aboutJisoo .content, #aboutRose .content {
   background: #020001;
@@ -566,6 +650,66 @@ body.loading .loading {
   background-size: cover;
 }
 
+@media only screen and (min-width: 1024px) {
+  #aboutLisa .landing, #aboutJennie .landing, #aboutJisoo .landing, #aboutRose .landing {
+    background: url("../img/home/landing-bg.png") no-repeat center center;
+    background-size: cover;
+  }
+  #aboutLisa .landing img, #aboutJennie .landing img, #aboutJisoo .landing img, #aboutRose .landing img {
+    display: block;
+    position: absolute;
+    height: calc(100% - 120px);
+    width: auto;
+    bottom: 0;
+    left: calc(((100vw - 1024px) / 2) + 50px);
+  }
+  #aboutLisa .landing::before, #aboutJennie .landing::before, #aboutJisoo .landing::before, #aboutRose .landing::before {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 10rem;
+    font-weight: bold;
+    position: absolute;
+    right: calc((100vw - 50px - 285px) / 2);
+    top: 50%;
+    transform: translate(50%, -50%);
+  }
+  #aboutLisa .content h1, #aboutJennie .content h1, #aboutJisoo .content h1, #aboutRose .content h1 {
+    display: none;
+  }
+  #aboutLisa .content h2, #aboutJennie .content h2, #aboutJisoo .content h2, #aboutRose .content h2 {
+    margin: 50px calc((100% - 824px) / 2) 0;
+    max-width: 824px;
+  }
+  #aboutLisa .content p, #aboutJennie .content p, #aboutJisoo .content p, #aboutRose .content p {
+    margin: 0 calc((100% - 824px) / 2);
+    max-width: 824px;
+  }
+  #aboutLisa .content .instagramfeed, #aboutJennie .content .instagramfeed, #aboutJisoo .content .instagramfeed, #aboutRose .content .instagramfeed {
+    max-width: 824px;
+    margin: 0 calc((100% - 824px) / 2) 50px;
+    max-height: 809px;
+  }
+  #aboutLisa .content .instagramfeed .feed, #aboutJennie .content .instagramfeed .feed, #aboutJisoo .content .instagramfeed .feed, #aboutRose .content .instagramfeed .feed {
+    grid-row-gap: 25px;
+    grid-column-gap: 25px;
+  }
+
+  #aboutLisa .landing::before {
+    content: "lisa";
+  }
+
+  #aboutJennie .landing::before {
+    content: "jennie";
+  }
+
+  #aboutJisoo .landing::before {
+    content: "jisoo";
+  }
+
+  #aboutRose .landing::before {
+    content: "rosé";
+  }
+}
 #music h2 {
   width: 100%;
   text-align: left;
@@ -650,6 +794,290 @@ body.loading .loading {
   display: flex;
 }
 
+@media only screen and (min-width: 1024px) {
+  #music h2 {
+    max-width: 1024px;
+    margin: 75px calc((100vw - 1024px) / 2) 35px;
+  }
+  #music #albums {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  #music #albums .album {
+    min-height: calc((((1024px - 50px) / 2) / 16) * 9);
+  }
+  #music #albums .album h1 {
+    padding: 15px;
+    margin: 0;
+    width: calc((100% - 50px) / 2);
+  }
+  #music #albums .album .song {
+    display: block;
+  }
+  #music #albums .album iframe {
+    width: calc((100% - 50px) / 2);
+    height: calc((((1024px - 50px) / 2) / 16) * 9);
+    margin-top: 15px;
+    float: right;
+    display: none;
+  }
+  #music #albums .album h3 {
+    margin: 0;
+    padding: 15px 0;
+    width: calc((100% - 50px) / 2);
+  }
+  #music #albums .album .links {
+    border-top: 1px solid #020001;
+    margin-top: -1px;
+    display: flex;
+  }
+  #music #albums .album .song {
+    display: block;
+  }
+  #music #albums .album .song:nth-child(3) iframe {
+    display: block;
+    margin-top: -50px;
+  }
+}
+#videos h2 {
+  width: 100%;
+  text-align: left;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 0 35px;
+  margin-top: 75px;
+  margin-bottom: 35px;
+  position: relative;
+}
+#videos h2 .vlivelogo {
+  background: url("../img/videos/vlive-logo.png") no-repeat center center;
+  height: 32px;
+  width: 104px;
+  position: absolute;
+  top: 3px;
+  display: inline-block;
+  margin-left: 15px;
+}
+#videos #vlives {
+  width: calc(100% - 70px);
+  margin: 0 35px;
+}
+#videos #vlives .vlive {
+  width: 100%;
+  margin: 0;
+  height: auto;
+  position: relative;
+  margin-bottom: 10px;
+}
+#videos #vlives .vlive img {
+  width: 100%;
+  height: auto;
+}
+#videos #vlives .vlive .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 23px));
+  background: #F7A6B9;
+  color: #ffffff;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  line-height: 77px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 2rem;
+}
+#videos #vlives .vlive .overlay i {
+  margin-left: 6px;
+}
+#videos #vlives .vlive h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-style: normal;
+  margin-top: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+#videos #vlives .vlive h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: normal;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 900px) {
+  #videos #vlives .vlive {
+    display: inline-block;
+    float: left;
+    width: calc((100% - 35px) / 2);
+    margin-bottom: 25px;
+  }
+  #videos #vlives .vlive img {
+    min-height: calc((100% / 16) * 9);
+  }
+  #videos #vlives a:nth-child(even) .vlive {
+    margin-left: 35px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #videos h2 {
+    max-width: 1024px;
+    margin: 75px calc((100vw - 1024px) / 2) 35px;
+  }
+  #videos #vlives {
+    max-width: 1024px;
+    margin: 0 calc((100vw - 1024px) / 2);
+  }
+}
+#store h2 {
+  width: 100%;
+  max-width: 550px;
+  text-align: left;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 0 35px;
+  margin-top: 75px;
+  margin-bottom: 35px;
+  position: relative;
+  margin: 75px calc((100vw - 550px) / 2) 35px;
+}
+#store #products {
+  width: 100%;
+  max-width: 550px;
+  box-sizing: border-box;
+  padding: 0 35px;
+  margin: 0 auto;
+}
+#store #products .productsWrapper {
+  width: 100%;
+}
+#store #products .productsWrapper a {
+  text-decoration: none;
+}
+#store #products .productsWrapper .product {
+  width: 100%;
+  height: auto;
+  position: relative;
+  float: left;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+}
+#store #products .productsWrapper .product.preorder {
+  padding-bottom: 26px;
+}
+#store #products .productsWrapper .product.preorder::before {
+  position: absolute;
+  content: "preorder";
+  text-transform: uppercase;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  background: #F7A6B9;
+  color: #020001;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 5px 0;
+}
+#store #products .productsWrapper .product.new {
+  padding-top: 20px;
+}
+#store #products .productsWrapper .product.new::after {
+  top: 0;
+  left: 100px;
+  transform: translate(-100%, 0);
+  background: red;
+  padding: 0 10px;
+  color: #ffffff;
+  content: "new";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  position: absolute;
+  padding: 2px 7px;
+}
+#store #products .productsWrapper .product img {
+  height: 100px;
+  width: 100px;
+  min-width: 100px;
+}
+#store #products .productsWrapper .product .info {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 15px;
+  justify-content: center;
+}
+#store #products .productsWrapper .product .info p {
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+#store #products .productsWrapper .product .info p.price {
+  opacity: 0.65;
+}
+
+@media only screen and (min-width: 1024px) {
+  #store h2 {
+    max-width: 1024px;
+    margin: 75px calc((100% - 1024px) / 2) 35px;
+  }
+  #store #products {
+    max-width: 1024px;
+  }
+  #store #products .productsWrapper a:nth-child(3n+2) .product {
+    margin: 0 35px;
+  }
+  #store #products .productsWrapper .product {
+    width: calc((100% - 70px) / 3);
+    flex-direction: column;
+  }
+  #store #products .productsWrapper .product.preorder {
+    padding-bottom: 0;
+  }
+  #store #products .productsWrapper .product.preorder::before {
+    left: 0;
+    top: 0;
+    bottom: auto;
+  }
+  #store #products .productsWrapper .product.new {
+    padding-top: 0;
+  }
+  #store #products .productsWrapper .product.new::after {
+    top: 0;
+    left: auto;
+    right: 0;
+    transform: translate(0, 0);
+  }
+  #store #products .productsWrapper .product img {
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+  }
+  #store #products .productsWrapper .product .info {
+    margin-top: 10px;
+    padding-left: 0;
+  }
+}
 @media only screen and (max-width: 327px) {
   body .loading article {
     font-size: 1.1rem;

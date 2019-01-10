@@ -1,0 +1,114 @@
+@import 'vars';
+
+#videos {
+    h2 {
+        width: 100%;
+        text-align: left;
+        color: #ffffff;
+        display: inline-block;
+        margin: 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        padding: 0 35px;
+        margin-top: 75px;
+        margin-bottom: 35px;
+        position: relative;
+        .vlivelogo {
+            background: url('../img/videos/vlive-logo.png') no-repeat center center;
+            height: 32px;
+            width: 104px;
+            position: absolute;
+            top: 3px;
+            display: inline-block;
+            margin-left: 15px;
+        }
+    }
+    #vlives {
+        width: calc(100% - 70px);
+        margin: 0 35px;
+        .vlive {
+            width: 100%;
+            margin: 0;
+            height: auto;
+            position: relative;
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+            .overlay {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, calc(-50% - 23px));
+                background: $pink;
+                color: #ffffff;
+                height: 75px;
+                width: 75px;
+                border-radius: 50%;
+                line-height: 77px;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 2rem;
+                i {
+                    margin-left: 6px;
+                }
+            }
+            h1 {
+                color: #ffffff;
+                margin: 0;
+                font-size: 1.1rem;
+                font-weight: 800;
+                font-style: normal;
+                margin-top: 5px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            h3 {
+                color: #ffffff;
+                margin: 0;
+                font-size: 1rem;
+                font-weight: 700;
+                font-style: normal;
+                opacity: 0.65;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 900px){
+    #videos {
+        #vlives {
+            .vlive {
+                display: inline-block;
+                float: left;
+                width: calc((100% - 35px) / 2);
+                margin-bottom: 25px;
+                img {
+                    min-height: calc((100% / 16) * 9);
+                }
+            }
+            a:nth-child(even){
+                .vlive {
+                    margin-left: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    #videos {
+        h2 {
+            max-width: 1024px;
+            margin: 75px calc((100vw - 1024px) / 2) 35px;
+        }
+        #vlives {
+            max-width: 1024px;
+            margin: 0 calc((100vw - 1024px) / 2);
+        }
+    }
+}
